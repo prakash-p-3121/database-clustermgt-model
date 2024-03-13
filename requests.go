@@ -1,8 +1,8 @@
 package database_clustermgt_model
 
 type DatabaseClusterCreateReq struct {
-	TableName *string `json:"table-name"`
-	ShardSize *int64  `json:"shard-size"`
+	TableName   *string `json:"table-name"`
+	ShardIDList []int64 `json:"shard-id-list"`
 }
 
 type DatabaseShardCreateReq struct {
