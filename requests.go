@@ -27,5 +27,5 @@ type DatabaseShardCreateReq struct {
 	Port         *int    `json:"port"`
 	UserName     *string `json:"user-name"`
 	Password     *string `json:"password"`
-	DatabaseName *string `json:"string"`
+	DatabaseName *string `json:"database-name"`
 }
