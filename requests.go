@@ -28,4 +28,6 @@ type DatabaseShardCreateReq struct {
 	UserName     *string `json:"user-name"`
 	Password     *string `json:"password"`
 	DatabaseName *string `json:"database-name"`
+	StartRange   *string `json:"start-range"`
+	EndRange     *string `json:"end-range"`
 }

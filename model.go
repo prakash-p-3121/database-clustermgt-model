@@ -20,6 +20,8 @@ type DatabaseShard struct {
 	UserName     *string   `json:"user-name"`
 	Password     *string   `json:"password"`
 	DatabaseName *string   `json:"string"`
+	StartRange   *string   `json:"start-range"`
+	EndRange     *string   `json:"end-range"`
 	CreatedAt    time.Time `json:"created-at"`
 	UpdatedAt    time.Time `json:"updated-at"`
 }
@@ -27,7 +29,6 @@ type DatabaseShard struct {
 type DatabaseCluster struct {
 	ID        *int64    `json:"id"` // clusterID
 	TableName *string   `json:"table-name"`
-	ShardSize *int64    `json:"shard-size"`
 	CreatedAt time.Time `json:"created-at"`
 	UpdatedAt time.Time `json:"updated-at"`
 }
