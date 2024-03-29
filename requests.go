@@ -6,8 +6,9 @@ import (
 )
 
 type DatabaseClusterCreateReq struct {
-	TableName   *string `json:"table-name"`
-	ShardIDList []int64 `json:"shard-id-list"`
+	TableName    *string `json:"table-name"`
+	ShardingType *uint8  `json:"sharding-type"`
+	ShardIDList  []int64 `json:"shard-id-list"`
 }
 
 func (req *DatabaseClusterCreateReq) Validate() errorlib.AppError {
@@ -17,6 +18,12 @@ func (req *DatabaseClusterCreateReq) Validate() errorlib.AppError {
 	*req.TableName = strings.TrimSpace(*req.TableName)
 	if len(*req.TableName) == 0 {
 		return errorlib.NewBadReqError("table-name-empty")
+	}
+	if req.ShardingType == nil {
+		return errorlib.NewBadReqError("sharding-type-nil")
+	}
+	if (*req.ShardingType != ShardingTypeByNumber) || (*req.ShardingType != ShardingTypeByChar) {
+		return errorlib.NewBadReqError("invalid-sharding-type")
 	}
 	return nil
 }
