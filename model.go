@@ -27,8 +27,14 @@ type DatabaseShard struct {
 }
 
 type DatabaseCluster struct {
-	ID        *int64    `json:"id"` // clusterID
-	TableName *string   `json:"table-name"`
-	CreatedAt time.Time `json:"created-at"`
-	UpdatedAt time.Time `json:"updated-at"`
+	ID           *int64    `json:"id"` // clusterID
+	TableName    *string   `json:"table-name"`
+	ShardingType uint8     `json:"sharding-type"`
+	CreatedAt    time.Time `json:"created-at"`
+	UpdatedAt    time.Time `json:"updated-at"`
 }
+
+const (
+	ShardingTypeByNumber = 1
+	ShardingTypeByChar   = 2
+)
