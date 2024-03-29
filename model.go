@@ -35,6 +35,6 @@ type DatabaseCluster struct {
 }
 
 const (
-	ShardingTypeByNumber = 1
-	ShardingTypeByChar   = 2
+	ShardingTypeByNumber = uint8(1)
+	ShardingTypeByChar   = uint8(2)
 )
