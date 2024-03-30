@@ -22,7 +22,7 @@ func (req *DatabaseClusterCreateReq) Validate() errorlib.AppError {
 	if req.ShardingType == nil {
 		return errorlib.NewBadReqError("sharding-type-nil")
 	}
-	if (*req.ShardingType != ShardingTypeByNumber) || (*req.ShardingType != ShardingTypeByChar) {
+	if !((*req.ShardingType == ShardingTypeByNumber) || (*req.ShardingType == ShardingTypeByChar)) {
 		return errorlib.NewBadReqError("invalid-sharding-type")
 	}
 	return nil
